@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Inactivity timer variables
-    let inactivityTime = 10 * 1000; // 10 seconds
+    let inactivityTime = 30 * 1000; // 30 seconds
     let inactivityTimer; // Timer to track inactivity
 
     // Overlay elements
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = window.innerHeight;
 
         const bubbleImage = new Image();
-        bubbleImage.src = 'images/bubble.png';
+        bubbleImage.src = 'bubble.png';
 
         bubbleImage.onload = () => {
             console.log('Image loaded');
@@ -74,18 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const bubbles = [];
-        const bubbleCount = 30; // Reduced bubble count
+        const bubbleCount = 28; // Reduced bubble count
+        const bubbleSize = 70; // Smaller bubble size
         const phaseDistance = bubbleSize / 2; // Allow bubbles to phase one radius into the wall
 
         const gravityDirections = [
-            { x: 0, y: -2.5 }, // Up
-            { x: 0, y: 2.5 }, // Down
-            { x: -2.5, y: 0 }, // Left
-            { x: 2.5, y: 0 }, // Right
-            { x: -2.5, y: -2.5 }, // Up-left
-            { x: 2.5, y: -2.5 }, // Up-right
-            { x: -2.5, y: 2.5 }, // Down-left
-            { x: 2.5, y: 2.5 }, // Down-right
+            { x: 0, y: -1 }, // Up
+            { x: 0, y: 1 }, // Down
+            { x: -1, y: 0 }, // Left
+            { x: 1, y: 0 }, // Right
+            { x: -1, y: -1 }, // Up-left
+            { x: 1, y: -1 }, // Up-right
+            { x: -1, y: 1 }, // Down-left
+            { x: 1, y: 1 }, // Down-right
         ];
 
         let currentGravityDirection = { x: 0, y: 0 }; // Starting direction
@@ -271,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Start changing gravity direction
         changeGravityDirection();
-        setInterval(changeGravityDirection, 3500); // Change direction every 3.5 seconds
+        setInterval(changeGravityDirection, 5000); // Change direction every 5 seconds
 
         // Set up initial inactivity timer
         resetInactivityTimer();
@@ -283,4 +284,3 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
     }
 });
-
