@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = window.innerHeight;
 
         const bubbleImage = new Image();
-        bubbleImage.src = 'bubble.png';
+        bubbleImage.src = 'images/bubble.png';
 
         bubbleImage.onload = () => {
             console.log('Image loaded');
@@ -284,3 +284,4 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
     }
 });
+
